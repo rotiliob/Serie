@@ -1,5 +1,6 @@
 package com.example.zdeeo.exerciciolistjson.model;
 
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
  * Created by zdeeo on 02/11/2016.
  */
 
-public class SeriesSearchResult {
+public class SerieSearchResult {
     @SerializedName("Search")
-    public static List<Series> series;
+    public List<Serie> series;
 }

@@ -1,7 +1,7 @@
 package com.example.zdeeo.exerciciolistjson.http;
 
-import com.example.zdeeo.exerciciolistjson.model.Series;
-import com.example.zdeeo.exerciciolistjson.model.SeriesSearchResult;
+import com.example.zdeeo.exerciciolistjson.model.Serie;
+import com.example.zdeeo.exerciciolistjson.model.SerieSearchResult;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -16,10 +16,10 @@ import okhttp3.Response;
  * Created by zdeeo on 02/11/2016.
  */
 
-public class SeriesParser {
-    public static final String URL_SEARCH = "http://www.omdbapi.com/?s=%s&page=2";
+public class SerieParser {
+    public static final String URL_SEARCH = "http://www.omdbapi.com/?s=%s&page=json";
 
-    public static List<Series> searchByTitle(String q) throws IOException {
+    public static List<Serie> searchByTitle(String q) throws IOException {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder().url(String.format(URL_SEARCH, q)).build();
@@ -29,8 +29,8 @@ public class SeriesParser {
             String json = response.body().string();
 
             Gson gson = new Gson();
-            SeriesSearchResult result = gson.fromJson(json, SeriesSearchResult.class);
-
+            SerieSearchResult result =
+                    gson.fromJson(json, SerieSearchResult.class);
             if (result != null) {
                 return result.series;
             }
