@@ -1,4 +1,4 @@
-package com.example.zdeeo.listalegal.model;
+package com.example.zdeeo.exerciciolistjson.model;
 
 import com.google.gson.annotations.SerializedName;
 
