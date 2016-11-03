@@ -31,7 +31,7 @@ public class SeriesParser {
 
             Gson gson = new Gson();
             SeriesSearchResult result = gson.fromJson(json, SeriesSearchResult.class);
-            
+
             if (result != null) {
                 return result.series;
             }
