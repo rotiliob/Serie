@@ -24,6 +24,7 @@ public class SeriesSearchTask extends android.support.v4.content.AsyncTaskLoader
     @Override
     protected void onStartLoading() {
         super.onStartLoading();
+        if (mQuery == null)return;
         if (mSerie == null){
             forceLoad();
         }else{

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ExercicioListJson</string>
+    <string name="hint_search">Buscar</string>
 </resources>
