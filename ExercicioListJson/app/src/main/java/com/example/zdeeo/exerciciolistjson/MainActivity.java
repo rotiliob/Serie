@@ -1,12 +1,12 @@
 package com.example.zdeeo.exerciciolistjson;
 
-import android.support.v4.app.LoaderManager;
-
 import android.os.AsyncTask;
+import android.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
+import android.support.v4.app.LoaderManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.widget.ListView;
 
 import com.example.zdeeo.exerciciolistjson.http.SerieParser;
@@ -29,9 +29,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         LoaderManager lm = getSupportLoaderManager();
         lm.initLoader(0, null,this);
-
-
-        new SerieSearchTask().execute("Batman");
     }
 
     @Override
@@ -41,35 +38,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<List<Serie>> loader, List<Serie> data) {
-
+        if (data != null) {
+            mListSeries.setAdapter(new SeriesAdapter(MainActivity.this, data));
+        }
     }
 
     @Override
     public void onLoaderReset(Loader<List<Serie>> loader) {
-
     }
-
-
-    class SerieSearchTask extends AsyncTask<String, Void, List<Serie>>{
-
-       @Override
-       protected List<Serie> doInBackground(String... params) {
-           try {
-               List<Serie> series = SerieParser.searchByTitle(params[0]);
-
-               return series;
-           } catch (IOException e) {
-               e.printStackTrace();
-           }
-           return null;
-       }
-
-       @Override
-       protected void onPostExecute(List<Serie> series) {
-           super.onPostExecute(series);
-           if (series != null) {
-               mListSeries.setAdapter(new SeriesAdapter(MainActivity.this, series));
-           }
-       }
-   }
 }

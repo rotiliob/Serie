@@ -12,7 +12,7 @@ import java.util.List;
  * Created by andre.burgos on 03/11/2016.
  */
 
-public class SeriesSearchTask extends AsyncTaskLoader<List<Serie>> {
+public class SeriesSearchTask extends android.support.v4.content.AsyncTaskLoader<List<Serie>> {
 
     List<Serie> mSerie;
     String mQuery;
