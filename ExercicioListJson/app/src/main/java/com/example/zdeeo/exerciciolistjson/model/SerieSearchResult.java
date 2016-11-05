@@ -10,6 +10,6 @@ import java.util.List;
  */
 
 public class SerieSearchResult {
-    @SerializedName("Search")
+    @SerializedName("results")
     public List<Serie> series;
 }

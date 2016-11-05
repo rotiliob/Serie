@@ -35,13 +35,16 @@ public class SeriesAdapter extends ArrayAdapter<Serie>{
         }
         ImageView imgPoster = (ImageView)convertView.findViewById(R.id.item_serie_poster);
         TextView txtTitle = (TextView)convertView.findViewById(R.id.item_serie_title);
-        TextView txtYear = (TextView)convertView.findViewById(R.id.item_serie_year);
 
+        if (serie.poster != ""){
         Picasso.with(getContext())
                 .load(serie.poster)
                 .into(imgPoster);
         txtTitle.setText(serie.title);
-        txtYear.setText(serie.year);
+        //txtYear.setText(serie.year);
+    }else{
+        imgPoster.setImageResource(R.mipmap.ic_launcher);
+    }
         return convertView;
     }
 }

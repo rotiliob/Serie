@@ -17,7 +17,7 @@ import okhttp3.Response;
  */
 
 public class SerieParser {
-    public static final String URL_SEARCH = "http://www.omdbapi.com/?s=%s&page=json";
+    public static final String URL_SEARCH = "http://www.recipepuppy.com/api/?q=%s";
 
     public static List<Serie> searchByTitle(String q) throws IOException {
         OkHttpClient client = new OkHttpClient();

@@ -7,12 +7,12 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class Serie {
-    @SerializedName("Title")
+    @SerializedName("title")
     public String title;
-    @SerializedName("Year")
-    public String year;
-    @SerializedName("imdbID")
-    public String imdbId;
-    @SerializedName("Poster")
+//    @SerializedName("Year")
+//    public String year;
+//    @SerializedName("imdbID")
+//    public String imdbId;
+    @SerializedName("thumbnail")
     public String poster;
 }
